@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Sort Paintings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Acme Art Gallery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="painting_listing.html">Browse Paintings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="insert_update_delete.html">Manage Paintings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search_and_sort.html">Search & Sort</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Search and Sort Paintings</h2>
+
+        <!-- Search Bar -->
+        <form class="d-flex mb-4" role="search">
+            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search for paintings by title, artist, or year" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- Sort Options -->
+        <div class="mb-4">
+            <label for="sortOptions" class="form-label">Sort by:</label>
+            <select class="form-select" id="sortOptions" aria-label="Sort Paintings">
+                <option value="title">Title</option>
+                <option value="artist">Artist</option>
+                <option value="year">Year</option>
+            </select>
+        </div>
+
+        <!-- Results Section (Example paintings list) -->
+        <div id="results" class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/painting1.jpg" class="card-img-top" alt="Painting 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Painting Title 1</h5>
+                        <p class="card-text">Artist: John Doe | Year: 2021</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/painting2.jpg" class="card-img-top" alt="Painting 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Painting Title 2</h5>
+                        <p class="card-text">Artist: Jane Doe | Year: 2019</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/painting3.jpg" class="card-img-top" alt="Painting 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Painting Title 3</h5>
+                        <p class="card-text">Artist: Alan Smith | Year: 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4">
+        <p>&copy; 2024 Acme Art Gallery. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/search_and_sort.js"></script>
+</body>
+</html>

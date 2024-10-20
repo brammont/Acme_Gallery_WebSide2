@@ -1,0 +1,30 @@
+/* assets/css/styles.css */
+
+/* Customize card styles */
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Customize the search bar */
+input[type="search"] {
+    border-radius: 30px;
+    padding-left: 20px;
+}
+
+.btn-outline-success {
+    border-radius: 30px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+footer p {
+    margin: 0;
+}

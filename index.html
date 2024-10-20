@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Art Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Acme Art Gallery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="painting_listing.html">Browse Paintings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="insert_update_delete.html">Manage Paintings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search_and_sort.html">Search Paintings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="jumbotron text-center bg-primary text-white py-5">
+        <div class="container">
+            <h1 class="display-4">Welcome to Acme Art Gallery</h1>
+            <p class="lead">Discover beautiful and unique artwork from around the world.</p>
+            <a href="painting_listing.html" class="btn btn-light btn-lg">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Paintings Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Featured Paintings</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/painting1.jpg" class="card-img-top" alt="Painting 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Painting Title 1</h5>
+                        <p class="card-text">Artist: John Doe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/painting2.jpg" class="card-img-top" alt="Painting 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Painting Title 2</h5>
+                        <p class="card-text">Artist: Jane Doe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="assets/img/painting3.jpg" class="card-img-top" alt="Painting 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Painting Title 3</h5>
+                        <p class="card-text">Artist: Alan Smith</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4">
+        <p>&copy; 2024 Acme Art Gallery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
