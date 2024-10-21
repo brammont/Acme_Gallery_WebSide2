@@ -1,39 +1,52 @@
-// assets/js/search_and_sort.js
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        loadPaintings();
+    });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Handle the search input
-    document.getElementById('searchInput').addEventListener('keyup', function() {
-        let filter = this.value.toLowerCase();
-        let cards = document.querySelectorAll('#results .card');
-        cards.forEach(card => {
-            let title = card.querySelector('.card-title').innerText.toLowerCase();
-            let artist = card.querySelector('.card-text').innerText.toLowerCase();
-            if (title.includes(filter) || artist.includes(filter)) {
-                card.parentElement.style.display = 'block';
+    async function loadPaintings() {
+        const searchQuery = document.getElementById('searchInput').value;
+        const sortOption = document.getElementById('sortSelect').value;
+
+        try {
+            const response = await fetch('fetch_paintings_search_sort.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ searchQuery, sortOption }),
+            });
+            
+            const paintings = await response.json();
+
+            if (Array.isArray(paintings)) {
+                displayPaintings(paintings);
             } else {
-                card.parentElement.style.display = 'none';
+                console.error("Error: Data is not in array format.");
             }
-        });
-    });
+        } catch (error) {
+            console.error('Error fetching paintings:', error);
+        }
+    }
 
-    // Handle sorting
-    document.getElementById('sortOptions').addEventListener('change', function() {
-        let sortBy = this.value;
-        let cards = Array.from(document.querySelectorAll('#results .card')).sort((a, b) => {
-            let aValue = a.querySelector(`.card-title`).innerText;
-            let bValue = b.querySelector(`.card-title`).innerText;
-            if (sortBy === 'artist') {
-                aValue = a.querySelector('.card-text').innerText.split(' | ')[0];
-                bValue = b.querySelector('.card-text').innerText.split(' | ')[0];
-            } else if (sortBy === 'year') {
-                aValue = a.querySelector('.card-text').innerText.split(' | ')[1];
-                bValue = b.querySelector('.card-text').innerText.split(' | ')[1];
-            }
-            return aValue.localeCompare(bValue);
-        });
+    function displayPaintings(paintings) {
+        const paintingsContainer = document.getElementById('paintingsContainer');
+        paintingsContainer.innerHTML = '';
 
-        let resultsDiv = document.getElementById('results');
-        resultsDiv.innerHTML = '';
-        cards.forEach(card => resultsDiv.appendChild(card.parentElement));
-    });
+        paintings.forEach(painting => {
+            const paintingCard = `
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="assets/img/${painting.image}" class="card-img-top" alt="${painting.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${painting.title}</h5>
+                            <p class="card-text">Artist: ${painting.artist} | Year: ${painting.year}</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            paintingsContainer.innerHTML += paintingCard;
+        });
+    }
 });
