@@ -1,17 +1,13 @@
 <?php
-// config/config.php
+$host = 'localhost';
+$dbname = 'acme_gallery';
+$username = 'root';
+$password = '';
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root'); // default user
-define('DB_PASS', ''); // default password
-define('DB_NAME', 'acme_gallery');
-
-// Connect to database
-function connect() {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    return $conn;
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('Could not connect to the database: ' . $e->getMessage());
 }
 ?>

@@ -1,20 +1,11 @@
 <?php
-// controllers/PaintingController.php
-include_once '../classes/Painting.php';
-include_once '../includes/db_connect.php';
+require_once '../config/db_connect.php';
 
-function getPaintings() {
-    global $conn;
-    $sql = "SELECT * FROM paintings";
-    $result = $conn->query($sql);
-    $paintings = [];
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $painting = new Painting($row['id'], $row['title'], $row['artist'], $row['year'], $row['image']);
-            array_push($paintings, $painting);
-        }
+class PaintingController {
+    public function getAllPaintings() {
+        global $pdo;
+        $query = $pdo->query('SELECT * FROM paintings');
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    return $paintings;
 }
 ?>
